@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Blog</title>
+    <link rel="stylesheet" href="/css/style.css"> <!-- Link to the main stylesheet -->
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a> <!-- Navigation link to the homepage -->
+            {{#if logged_in}} <!-- Conditional rendering based on login status -->
+                <a href="/dashboard">Dashboard</a> <!-- Link to the user dashboard if logged in -->
+                <button id="logout-button">Logout</button> <!-- Logout button if logged in -->
+            {{else}}
+                <a href="/login">Login</a> <!-- Link to the login page if not logged in -->
+                <a href="/signup">Signup</a> <!-- Link to the signup page if not logged in -->
+            {{/if}}
+        </nav>
+    </header>
+    <main>
+        {{{body}}} <!-- Placeholder where page-specific Handlebars templates are rendered -->
+    </main>
+    <footer>
+        <p>© 2024 Tech Blog by You</p> <!-- Footer content -->
+    </footer>
+    <script>
+    document.getElementById('logout-button')?.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default form submission behavior
+        fetch('/api/logout', {
+            method: 'POST' // Send a POST request to the server to handle logout
+        }).then(response => {
+            if (response.ok) {
+                window.location.href = '/login'; // Redirect to login page on successful logout
+            } else {
+                alert('Failed to log out.'); // Show error message if logout fails
+            }
+        });
+    });
+    </script>
+</body>
+</html>

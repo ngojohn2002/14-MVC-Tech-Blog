@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup | Tech Blog</title>
+    <link rel="stylesheet" href="/css/style.css"> <!-- Link to the external CSS file for styling -->
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/">Home</a> <!-- Navigation link to the homepage -->
+            <a href="/login">Login</a> <!-- Navigation link to the login page -->
+        </nav>
+    </header>
+    <main>
+        <h1>Sign Up</h1>
+        <form id="signup-form">
+            <input type="text" name="username" placeholder="Username" required> <!-- Input field for username -->
+            <input type="password" name="password" placeholder="Password" required> <!-- Input field for password -->
+            <button type="submit">Sign Up</button> <!-- Submit button for the form -->
+        </form>
+    </main>
+    <footer>
+        <p>© 2024 Tech Blog by You</p> <!-- Static footer text -->
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('signup-form');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+                const formData = new FormData(form); // Create a FormData object from the form
+                fetch('/api/users', {
+                    method: 'POST', // HTTP method for creating a new user
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ // Convert form data to JSON
+                        username: formData.get('username'),
+                        password: formData.get('password')
+                    })
+                })
+                .then(response => response.json()) // Parse the JSON response
+                .then(data => {
+                    if (data.message === 'Signup successful!') {
+                        window.location.href = '/dashboard'; // Redirect to the dashboard on successful signup
+                    } else {
+                        alert(data.message); // Display an alert if there's an error
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred, please try again.'); // Display an alert on error
+                });
+            });
+        });
+    </script>
+</body>
+</html>

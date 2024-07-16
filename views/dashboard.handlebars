@@ -1,0 +1,14 @@
+<h1>Dashboard</h1>
+{{#if posts.length}} <!-- Check if there are posts to display -->
+    {{#each posts as |post|}} <!-- Iterate over each post provided to the template -->
+        <div>
+            <h3>{{post.title}}</h3> <!-- Display the title of the post -->
+            <p>{{post.content}}</p> <!-- Display the content of the post -->
+            <a href="/edit/{{post.id}}">Edit</a> <!-- Link to edit the post, using the post's ID -->
+            <button onclick="deletePost({{post.id}})">Delete</button> <!-- Button to delete the post, using the post's ID -->
+        </div>
+    {{/each}}
+{{else}}
+    <p>You have not posted any blogs yet.</p> <!-- Message displayed if there are no posts -->
+{{/if}}
+<a href="/newpost">Add New Post</a> <!-- Link to add a new post -->

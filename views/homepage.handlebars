@@ -1,0 +1,12 @@
+{{#each posts as |post|}} <!-- Iterate over each post provided to the template -->
+    <article>
+        <h2>{{post.title}}</h2> <!-- Display the title of the post -->
+        <p>{{post.content}}</p> <!-- Display the content of the post -->
+        <p>Posted by {{post.user.username}} on {{format_date post.createdAt}}</p> <!-- Display the author and formatted creation date -->
+        {{#if logged_in}} <!-- Conditionally display the comment link if the user is logged in -->
+            <a href="/post/{{post.id}}">Comment</a> <!-- Link to the detailed view of the post for commenting -->
+        {{/if}}
+    </article>
+{{else}}
+    <p>No posts to display.</p> <!-- Message displayed if there are no posts -->
+{{/each}}

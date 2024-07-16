@@ -1,0 +1,67 @@
+/* Global styles */
+body {
+    font-family: 'Arial', sans-serif; /* Use Arial font for consistency across the application */
+    line-height: 1.6; /* Increase line height for better readability */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    background: #f4f4f4; /* Light gray background for a neutral look */
+    color: #333; /* Dark gray text for readability */
+}
+
+/* Header styling */
+header {
+    background: #333; /* Dark background for the header for contrast */
+    color: #fff; /* White text color for visibility against the dark background */
+    padding: 10px 20px; /* Padding for spacing inside the header */
+    text-align: center; /* Center-align the text inside the header */
+}
+
+/* Navigation link styling */
+nav a {
+    color: #fff; /* White text color for links to stand out */
+    text-decoration: none; /* Remove underline from links */
+    margin: 0 10px; /* Horizontal spacing between navigation links */
+}
+
+/* Main content area styling */
+main {
+    padding: 20px; /* Padding around the content for spacing */
+    max-width: 800px; /* Max width to constrain the content for optimal reading */
+    margin: 20px auto; /* Center the main content horizontally and add vertical spacing */
+}
+
+/* Footer styling */
+footer {
+    text-align: center; /* Center-align footer text */
+    padding: 10px 0; /* Padding for spacing above and below the footer text */
+    background: #333; /* Dark background for the footer to match the header */
+    color: #fff; /* White text for visibility */
+}
+
+/* Individual article/block styling */
+article {
+    background: #fff; /* White background for articles to stand out from the main background */
+    padding: 20px; /* Padding inside articles for spacing */
+    margin-bottom: 20px; /* Space between articles */
+}
+
+/* Button and input styling */
+button, input[type="submit"] {
+    background: #5cb85c; /* Green background for buttons and submit inputs */
+    color: white; /* White text for contrast */
+    border: none; /* Remove default border */
+    padding: 10px 20px; /* Padding for a larger clickable area */
+    margin-top: 10px; /* Top margin for spacing from other elements */
+    cursor: pointer; /* Pointer cursor on hover to indicate clickability */
+}
+
+button:hover, input[type="submit"]:hover {
+    background: #449d44; /* Darker green on hover for visual feedback */
+}
+
+/* Styling for text inputs and password inputs */
+input[type="text"], input[type="password"] {
+    width: calc(100% - 22px); /* Full width minus padding for alignment */
+    padding: 10px; /* Padding for aesthetic and comfort of typing */
+    margin-top: 5px; /* Top margin for spacing from other form elements */
+}
